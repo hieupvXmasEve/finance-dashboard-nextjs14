@@ -12,7 +12,7 @@ export const accounts = pgTable("accounts", {
 export const accountsRelations = relations(accounts, ({ many }) => ({
   transactions: many(transactions),
 }));
-
+// Schema for inserting an account - can be used to validate API requests
 export const insertAccountSchema = createInsertSchema(accounts);
 
 export const categories = pgTable("categories", {
