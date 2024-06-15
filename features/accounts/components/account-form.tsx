@@ -1,4 +1,3 @@
-import React from "react";
 import { insertAccountSchema } from "@/db/schema";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -50,7 +49,7 @@ const AccountForm = ({ id, defaultValues, onSubmit, onDelete, disabled }: Props)
             </FormItem>
           )}
         />
-        <Button>{id ? "Save changes" : "Create account"}</Button>
+        <Button className="w-full" disabled={disabled}>{id ? "Save changes" : "Create account"}</Button>
         {!!id && (
           <Button
             type="button"
