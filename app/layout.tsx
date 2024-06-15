@@ -6,6 +6,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { QueryProvider } from "@/providers/query-provider";
 import { SheetProvider } from "@/features/accounts/components/sheet-provider";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
         <body className={inter.className}>
           <QueryProvider>
             <SheetProvider />
+            <Toaster richColors theme='light' />
             {children}
           </QueryProvider>
         </body>
