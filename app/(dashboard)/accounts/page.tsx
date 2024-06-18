@@ -5,12 +5,22 @@ import { useNewAccount } from "@/features/accounts/hooks/use-new-account";
 import { Loader2, Plus } from "lucide-react";
 import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Payment, columns } from "./columns";
+import { DataTable } from "@/components/data-table";
 
+const data: Payment[] = [
+  {
+    id: "728ed52f",
+    amount: 100,
+    status: "pending",
+    email: "m@example.com",
+  },
+]
 const AccountsPage = () => {
   const newAccount = useNewAccount();
   const accountsQuery = useGetAccounts();
 
-  if(accountsQuery.isPending) {
+  if (accountsQuery.isPending) {
     return (
       <div className="mx-auto -mt-6 w-full max-w-screen-2xl pb-10">
         <Card className="border-none drop-shadow-sm">
@@ -37,6 +47,9 @@ const AccountsPage = () => {
             <Plus className="mr-2 size-4" /> Add new
           </Button>
         </CardHeader>
+        <CardContent>
+          <DataTable columns={columns} data={data} />
+        </CardContent>
       </Card>
     </div>
   );

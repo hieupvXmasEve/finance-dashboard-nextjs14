@@ -31,9 +31,9 @@ const AccountForm = ({ id, defaultValues, onSubmit, onDelete, disabled }: Props)
   };
   return (
     <Form {...form}>
-      <form action=""
-            onSubmit={form.handleSubmit(handleSubmit)}
-            className="space-y-4 pt-4"
+      <form
+        onSubmit={form.handleSubmit(handleSubmit)}
+        className="space-y-4 pt-4"
       >
         <FormField
           name="name"
